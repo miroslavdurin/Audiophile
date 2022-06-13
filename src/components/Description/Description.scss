@@ -1,0 +1,114 @@
+@use '../../sass/abstracts/mixins' as *;
+@use '../../sass/abstracts/variables' as *;
+
+.section-description {
+    display: flex;
+    flex-direction: row;
+    gap: 6rem;
+    justify-content: space-between;
+
+    @include respond(tab-land) {
+        flex-direction: column;
+    }
+
+    @include respond(tab-port) {
+        margin-bottom: 7rem;
+    }
+
+    @include respond(phone-sm) {
+        gap: 8.8rem;
+        margin-bottom: 8rem;
+    }
+}
+
+.description {
+    &__features {
+        width: 60%;
+
+        @include respond(tab-land) {
+            width: 100%;
+            margin-bottom: 5.5rem;
+        }
+
+        @include respond(phone-sm) {
+            margin-bottom: 0;
+            .heading--h3 {                
+                margin-bottom: 2.4rem;
+            }
+        }
+    }
+
+    &__details {
+        @include respond(tab-land) {
+            margin-right: auto;
+            margin-left: 10rem;
+        }
+
+        @include respond(tab-port) {            
+            margin-left: 0;
+            padding-right: 10rem;
+        }
+
+        @include respond(phone-lg) {
+            padding-right: 0;
+            margin-left: auto;
+        }
+
+        @include respond(phone-sm) {
+            margin: 0;
+            
+        }
+    }
+
+    &__includes {        
+        width: 35rem;
+
+        .paragraph {
+            span:first-child {
+                color: $color-brown;
+                font-weight: 700;
+                display: inline-block;
+                width: 1rem;
+                margin-right: 2.4rem;
+            }           
+
+            span:last-child {
+                opacity: 0.5;
+            }
+        }
+
+        @include respond(tab-land) {
+            width: 100%;
+            display: flex;
+            gap: 1.1rem;
+            justify-content: space-between;
+
+            .heading--h3 {
+                margin-right: 16rem;
+            }                  
+        }
+
+        @include respond(phone-lg) {
+
+            .heading--h3 {
+                margin-right: 5rem;
+            }
+        }
+
+        @include respond(phone-sm) {
+            flex-direction: column;
+            gap: 2.4rem;
+            
+            .heading--h3 {
+                margin-bottom: 0;
+            }
+
+            .paragraph {
+                margin-bottom: 0.8rem;
+                span:first-child {
+                    margin-right: 3rem;
+                }
+            }
+        }
+    }
+}

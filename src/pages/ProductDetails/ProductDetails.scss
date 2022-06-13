@@ -1,0 +1,19 @@
+@use '../../sass/abstracts/mixins' as *;
+@use '../../sass/abstracts/variables' as *;
+
+.product-details__header {
+    margin-bottom: calc(9.7rem + 16rem);
+    background-color: $color-black;
+
+    @include respond(tab-port) {
+        margin: calc(9.7rem + 8rem);
+    }
+
+    @include respond(phone-sm) {
+        margin: 15.5rem;
+    }
+}
+
+main {
+    margin-top: 9.7rem;
+}

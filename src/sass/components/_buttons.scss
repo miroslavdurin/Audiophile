@@ -1,0 +1,63 @@
+@use '../abstracts/variables' as *;
+
+.button {    
+    position: relative;
+    border: none;
+    cursor: pointer;
+    width: 16rem;
+    height: 4.8rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1.8rem;
+    text-transform: uppercase;
+    color: $color-white;
+    background-color: $color-brown;
+    transition: all 0.45s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 40px;
+        transform: translateX(-70px) skew(-15deg);
+        background-color: rgba($color-white, 0.6);
+        filter: blur(25px);
+    }
+
+    &:hover {
+        background-color: $color-brown-light;        
+
+        &::after {
+            transform: translateX(35em) skew(-15deg);
+            transition: transform 0.4s ease-out;
+        }
+    }
+
+    &--black {
+        color: $color-white;
+        background-color: $color-black;
+
+        &:hover {
+            background-color: $color-grey-dark;
+        }
+    }
+
+    &--transparent {
+        color: $color-black;
+        background-color: transparent;
+        border: 1px solid $color-black;
+
+        &:hover {
+            color: $color-white;
+            background-color: $color-black;
+        }
+    }
+}

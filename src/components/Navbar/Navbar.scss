@@ -1,0 +1,196 @@
+@use '../../sass/abstracts/variables' as *;
+@use '../../sass/abstracts/mixins' as *;
+
+
+.nav {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    background-color: $color-black;
+
+    .container {
+        height: 9.7rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        color: $color-white;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.3rem;
+        line-height: 2.5rem; 
+        text-transform: uppercase;
+        border-bottom: 1px solid rgba($color-white, 0.2);
+
+        @include respond(tab-land) {
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        @include respond(tab-port) {
+            height: 9rem;
+        }
+    }
+
+    &__hamburger-btn {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        margin-right: 4.2rem;
+        display: none;
+
+        @include respond(tab-land) {
+            display: block;
+        }
+
+        @include respond(phone-sm) {
+            margin-right: auto;
+        }
+    }
+
+    &__hamburger-icon {
+
+    }
+
+    &__item {
+        cursor: pointer;      
+    }    
+
+    &__links {
+        display: flex;
+        flex-direction: row;
+        gap: 3.2rem;
+
+        @include respond(tab-land) {
+            display: none;
+        }
+    }
+
+    &__item:hover &__link{   
+        color: $color-brown;          
+    }
+
+    &__link {
+        letter-spacing: 2px;
+        color: currentColor;     
+        display: inline-block;     
+        transition: all 0.2s ease;                   
+    }    
+
+    &__link.active {
+        color: $color-brown;
+    }
+
+    &__logo {
+        cursor: pointer;        
+    }
+
+    &__logo-link {
+        display: inline-block;
+        max-height: 2.5rem;
+    }
+
+    &__cart-btn {        
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        margin-left: 12rem;
+        margin-top: -1rem;
+        border: none;
+        outline: none;
+        background-color: transparent;    
+        
+        @include respond(small-desktop) {
+            margin-left: 0;
+        }
+
+        @include respond(tab-land) {
+            margin-left: auto;
+        }
+
+        svg {
+            width: 2.3rem;
+            height: 2rem;            
+            fill: $color-white;                                  
+            transition: all 0.2s ease;                       
+        } 
+
+        &:hover svg {
+            fill: $color-brown;
+            transform: scale(1.1);
+        }
+    }
+
+    &__cart-quantity {
+        color: $color-white;
+        position: absolute;  
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: -15px;
+        right: -15px;
+        width: 2rem;
+        height: 2rem;
+        
+        border-radius: 100rem;
+        background-color: $color-brown;        
+        visibility: hidden;
+
+        span {
+            display: block;
+            font-size: 1.4rem;
+            width: 100%;
+            margin: auto;
+        }
+    }
+    &__cart-quantity.visible {
+        visibility: visible;
+    }
+
+    &__mobile-container {
+        position: fixed;
+        top: 9.7rem;
+        left: 0;
+        min-width: 100vw;        
+        z-index: 100;
+        background-color: $color-white;
+        margin: 0;
+        padding: 10.8rem 0 6.7rem 0;
+        display: none;
+
+        @include respond(tab-land) {
+            display: block;
+            padding: 13rem 0 6.7rem 0;
+        }
+
+        @include respond(tab-port) {
+            top: 9rem;
+            padding: 5.6rem 0 6.7rem 0;
+        }
+
+        @include respond(phone-sm) {
+            padding-top: 3.2rem;
+        }
+    }
+
+    &__mobile-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        min-height: 100%;
+        background-color: rgba($color-black, 0.4);
+        z-index: 99;
+        display: none;
+
+        @include respond(tab-land) {
+            display: block;
+        }
+
+    }
+}

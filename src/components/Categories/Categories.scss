@@ -1,0 +1,163 @@
+@use '../../sass/abstracts/variables' as *;
+@use '../../sass/abstracts/mixins' as *;
+
+
+.section-categories {
+    display: flex;
+    gap: 3rem;
+
+    @include respond(tab-port) {
+        gap: 1rem;
+        margin-bottom: 8rem;
+    }
+
+    @include respond(phone-sm) {
+        flex-direction: column;
+        margin-bottom: 11.4rem;
+    }
+}
+
+.category {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+    background-color: $color-grey-light;
+    height: 20.4rem;
+    position: relative;    
+    border-radius: 8px;  
+    
+    @include respond(small-desktop) {
+        height: 18rem;
+    }
+
+    @include respond(tab-land) {
+        margin-top: 1rem;
+        height: 16.5rem;
+
+        &:first-child &__img{
+            width: 70%;
+        }
+
+        &:nth-child(2) &__img {
+            bottom: 0.6rem;
+        }
+
+        &:last-child &__img{
+            left: 2.2rem;
+            bottom: -0.8rem;
+            width: 80%;
+        }
+    }
+
+    @include respond(tab-port) {
+        margin-top: 6rem;
+        .heading--h6 {
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+    }
+
+    @include respond(phone-sm) {
+        max-height: 16.5rem;
+        
+        &:first-child &__img{
+            width: 15rem;
+        }
+
+        &:nth-child(2) &__img {
+            width: 15rem;
+
+        }
+
+        &:last-child &__img{
+            width: 15rem;
+
+        }
+    }
+
+    &__img {
+        width: 61%;
+        position: absolute;
+        bottom: 7.6rem;
+        left: 6.6rem;
+        display: block;
+
+        @include respond(small-desktop) {
+            left: 17%;
+            bottom: 0;
+            transform: translateY(-8rem);
+            width: 65%;
+        }
+
+        @include respond(phone-sm) {
+            position: static;
+            transform: translateY(0);
+        }   
+    }
+
+    &__shop {
+        margin-top: 2.5rem;  
+        margin-bottom: 2.5rem;   
+        
+        @include respond(tab-port) {
+            margin-top: 1.2rem;           
+        }
+
+        @include respond(phone-sm) {
+            margin-bottom: 1.8rem;
+            margin-top: 1rem;           
+        }
+
+        &--text {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 1.3rem;
+            line-height: 1.8rem;
+
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.75;
+            margin-right: 13px;
+
+            transition: all 0.12s ease;            
+        }
+
+        &--icon {            
+            img {
+                margin-top: 0 auto;
+                display: inline-block;   
+            }
+        }        
+    }
+
+    &:hover &__shop--text {
+        color: $color-brown;
+        opacity: 1;
+    }
+
+    &:hover &__shop--icon img{
+        animation: chevron 0.35s ease;      
+        animation-iteration-count: 2; 
+    }
+}
+
+.section-categories.mobile-nav {
+    margin-bottom: 0;
+}
+
+@keyframes chevron {
+    from {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(3px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}

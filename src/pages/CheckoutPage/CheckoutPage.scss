@@ -1,0 +1,24 @@
+@use '../../sass/abstracts/variables' as *;
+@use '../../sass/abstracts/mixins' as *;
+
+@include respond(tab-port) {
+    main {
+        margin-top: 0;
+    }
+}
+
+.checkout-page {
+    background-color: $color-grey-light;
+
+    @include respond(tab-port) {
+        background-color: $color-white;
+    }
+
+    header {
+        margin-top: 9.7rem;
+
+        @include respond(tab-port) {        
+            margin-top: 9rem;
+        }
+    }
+}

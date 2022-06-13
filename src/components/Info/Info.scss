@@ -1,0 +1,85 @@
+@use '../../sass/abstracts/variables' as *;
+@use '../../sass/abstracts/mixins' as *;
+
+
+.section-info {
+    display: flex;
+    gap: 3rem;
+    justify-content: space-between;
+
+    @include respond(tab-land) {
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+        margin-bottom: 0;      
+        gap: 6.3rem;
+    }
+
+    @include respond(phone-sm) {
+        gap: 4rem;
+        margin-bottom: 2.5rem;
+    }
+}
+
+.info {
+    &__content {
+        flex: 1;
+        padding: 14.5rem 0;
+
+        @include respond(small-desktop) {
+            padding: 10rem 0;
+        }
+
+        @include respond(tab-land) {
+            padding: 0rem;
+            width: 85%;
+            margin: 0 auto 9.6rem;
+            text-align: center;
+        }
+
+        @include respond(phone-sm) {
+            width: 100%;
+        }
+
+        h2 span {
+            color: $color-brown;
+        }                 
+                
+        &>* {
+            padding-right: 10rem;
+
+            @include respond(small-desktop) {
+                padding-right: 5rem;
+            }      
+            
+            @include respond(tab-land) {
+                padding-right: 0;
+            }
+
+        }
+    }
+
+    &__img {
+        flex: 1;
+        background-image: url('../../assets/shared/desktop/image-best-gear.jpg');
+        background-size: cover;
+        background-position: center;
+        border-radius: 8px;
+        height: 58.8rem;
+
+        @include respond(small-desktop) {
+            height: 50vw;
+        }
+
+        @include respond(tab-land) {
+            background-image: url('../../assets/shared/tablet/image-best-gear.jpg');
+            flex: none;
+            height: 30rem;
+            background-repeat: no-repeat;      
+        }
+
+        @include respond(phone-sm) {
+            background-image: url('../../assets/shared/mobile/image-best-gear.jpg');
+           
+        }
+    }
+}

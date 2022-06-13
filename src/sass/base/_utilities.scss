@@ -1,0 +1,49 @@
+@use '../abstracts/mixins' as *;
+
+.container {
+    max-width: 111rem;
+    margin: 0 auto;
+
+    @include respond(small-desktop) {
+        margin: 0 10rem;
+    }
+
+    @include respond(tab-land) {
+        margin: 0 7rem;
+    }
+
+    @include respond(tab-port) {
+        margin: 0 4rem;
+    }
+
+    @include respond(phone-lg) {
+        margin: 0 2.4rem;
+    }
+}
+
+.mb-16 { margin-bottom: 1.6rem; }
+.mb-24 { margin-bottom: 2.4rem; }
+.mb-32 { margin-bottom: 3.2rem; }
+.mb-40 { margin-bottom: 4rem; }
+.mb-48 { 
+    margin-bottom: 4.8rem; 
+    @include respond(phone-sm) {
+        margin-bottom: 2.4rem;
+    }
+}
+.mb-64 { margin-bottom: 6.4rem; }
+.mb-160 { 
+    margin-bottom: 16rem; 
+
+    @include respond(tab-port) {
+        margin-bottom: 12rem;
+    }
+}
+.mb-200 { 
+    margin-bottom: 20rem; 
+
+    @include respond(tab-port) {
+        margin-bottom: 9.6rem;
+    }
+}
+.mb-240 { margin-bottom: 24rem; }

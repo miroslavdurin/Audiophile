@@ -1,0 +1,26 @@
+@use '../../sass/abstracts/variables' as *;
+@use '../../sass/abstracts/mixins' as *;
+
+.home {
+    &__header {
+        background-color: rgb(25,25,25);     
+        max-height: calc(73rem - 9.7rem);   
+        overflow: hidden;
+        border-radius: 0 0 5px 5px;
+        margin-top: 9.7rem;
+
+        @include respond(tab-land) {
+            height: 63.8rem;
+            max-height: 63.8rem;
+        }
+
+        @include respond(tab-port) {
+            margin-top: 9rem;              
+        }
+
+        @include respond(phone-sm) {
+            max-height: calc(60rem - 9rem);   
+            margin-bottom: 3rem;
+        }
+    }
+}

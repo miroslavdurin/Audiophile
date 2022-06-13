@@ -1,0 +1,121 @@
+@use '../../sass/abstracts/variables' as *;
+@use '../../sass/abstracts/mixins' as *;
+
+.hero {
+    padding: 13rem 0 15.8rem 0;    
+    color: $color-white;
+    display: flex;
+    gap: 5rem;
+    position: relative;
+
+    @include respond(small-desktop) {        
+        padding-top: 8rem;
+        gap: 10rem;        
+    }
+
+    @include respond(tab-land) {        
+       display: block;
+       padding: 12.5rem 0 16.7rem 0;       
+    }
+
+    @include respond(phone-sm) {
+        padding: 11rem 0 16.7rem 0;       
+
+        &.container {
+            margin: 0;
+        }
+    }
+
+    &__text-content {
+        width: 35%;
+        @include respond(small-desktop) {
+            position: relative;
+            z-index: 10;
+        }
+
+        @include respond(tab-land) {        
+            width: 88%;
+            text-align: center;
+            margin: 0 auto;
+
+            .button {
+                margin: 0 auto;
+            }
+
+            .paragraph {
+                width: 50%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        @include respond(tab-port) {
+            .paragraph {
+                width: 60%;
+            }
+        }
+
+        @include respond(phone-sm) {
+            .overline {
+                margin-bottom: 1.6rem;
+            }
+            .paragraph {
+                width: 80%;
+                margin-bottom: 2.8rem;
+            }
+        }
+    }
+
+    &__title {
+        color: rgba($color-white, 0.5);
+    }
+
+    &__text {
+        opacity: 0.75;
+        width: 90%;
+    }
+
+    &__img-container {
+        width: 100rem;
+        height: 73rem;
+        overflow-y: hidden;
+        background-image: url('../../assets/home/desktop/image-hero.jpg');    
+        background-size: cover;
+        background-position-x: 78%;
+        transform: translateY(-22.5rem);
+
+        @include respond(small-desktop) {
+            display: block;
+            width: 60vw;
+            height: 60vw;
+            transform: translateY(-22%);
+            overflow-y: visible;            
+            background-position-x: 75%;
+        }
+
+        @include respond(tab-land) {
+            background-repeat: no-repeat;
+            background-image: url('../../assets/home/tablet/image-header.jpg');    
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-position-x: initial;
+            background-position: center -9rem;
+            background-size: 77rem 73rem;
+            transform: translateY(0);
+            width: 100%;
+            height: 100%;
+            z-index: 9;           
+        }
+
+        @include respond(phone-sm) {
+            background-image: url('../../assets/home/mobile/image-header.jpg');    
+            width: 100vw;
+            max-height: 51rem;
+            background-size: 100%;
+            background-position: left 100%;
+            transform: translateY(0);
+            
+        }
+    }
+}
