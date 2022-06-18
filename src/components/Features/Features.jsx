@@ -4,7 +4,6 @@ import {images} from '../../constants/index';
 import { Link } from 'react-router-dom';
 
 function Features() {
-    const {homeYx1Desktop, homeHeroDesktop, homeZx7Desktop, homeZx9Desktop, homeCirclePatterns} = images;
     
     return (
         <section className='section-features container mb-200'>

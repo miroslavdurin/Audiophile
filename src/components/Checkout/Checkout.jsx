@@ -18,8 +18,9 @@ import {
 } from '../../helpers/validators';
 
 function Checkout() {
-    const [isModalOpen, setIsModalOpen] = useState(false)
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
+    // TODO Remove default values in form
     const { register, handleSubmit, setValue, watch, trigger, formState:{errors, isValidating} } = useForm({
         reValidateMode: 'onChange',
         mode: 'onChange',

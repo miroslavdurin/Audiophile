@@ -28,21 +28,6 @@ function OtherProducts({others}) {
                         )                        
                     })
                 }
-                {/* <div className="products__product">
-                    <img src={others[0].image.desktop} alt="" className="products__img mb-40" />
-                    <h5 className="heading--h5 mb-32">{others[0].name}</h5>
-                    <button className="button">See Product</button>
-                </div>
-                <div className="products__product">
-                    <img src={others[1].image.desktop} alt="" className="products__img" />
-                    <h5 className="heading--h5 mb-32">{others[1].name}</h5>
-                    <button className="button">See Product</button>
-                </div>
-                <div className="products__product">
-                    <img src={others[2].image.desktop} alt="" className="products__img" />
-                    <h5 className="heading--h5 mb-32">{others[2].name}</h5>
-                    <button className="button">See Product</button>
-                </div> */}
             </div>
         </section>
     )

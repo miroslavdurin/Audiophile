@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import {images} from '../../constants/index'
 
 function Hero() {
-    const {homeHeroDesktop} = images;
 
     return (
         <div className='hero container'>

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import './Footer.scss';
 import {icons} from '../../constants/index';
 import { Link, NavLink } from 'react-router-dom';
@@ -49,15 +49,13 @@ function Footer() {
                                             <svg>
                                                 <use href={`${iconFacebook}#icon-facebook`} />
                                             </svg>
-                                            {/* <img src={iconFacebook} alt="facebook icon" /> */}
                                         </a>
                                     </li>
                                     <li className="footer__item">
                                         <a href="#"  className="footer__link">
                                             <svg id="twitter">
                                                 <use href={`${iconTwitter}#icon-twitter`} />
-                                            </svg>{/* 
-                                            <img src={iconTwitter} alt="twitter icon" /> */}
+                                            </svg>
                                         </a>
                                     </li>
                                     <li className="footer__item">

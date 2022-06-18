@@ -16,7 +16,6 @@ function Gallery({images}) {
                         
                         <img src={first.desktop} srcSet={first.desktop} alt="gallery image" className="gallery__img-first" />
                     </picture>
-                    {/* <img src={first.desktop} alt="gallery image" className="gallery__img-first" /> */}
                 </div>
                 <div className="gallery__container">
                     <picture className="gallery__img-second">
@@ -26,7 +25,6 @@ function Gallery({images}) {
                         
                         <img src={second.desktop} srcSet={second.desktop} alt="gallery image" className="gallery__img-second" />
                     </picture>
-                   {/*  <img src={second.desktop} alt="gallery image" className="gallery__img-second" /> */}
                 </div> 
             </div>
             <div className="gallery--right">
@@ -38,7 +36,6 @@ function Gallery({images}) {
                         
                         <img src={third.desktop} srcSet={third.desktop} alt="gallery image" className="gallery__img-third" />
                     </picture>
-                    {/* <img src={third.desktop} alt="gallery image" className="gallery__img-third" /> */}
                 </div>
             </div>            
         </section>
