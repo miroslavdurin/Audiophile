@@ -104,23 +104,21 @@ function Footer() {
                                 </p>  
                                 <ul className="footer__icons">
                                     <li className="footer__item">
-                                        <a href="#" className="footer__link">
+                                        <a href="#" className="footer__link" aria-label="Link to Facebook page">
                                             <svg>
                                                 <use href={`${iconFacebook}#icon-facebook`} />
                                             </svg>
-                                            {/* <img src={iconFacebook} alt="facebook icon" /> */}
                                         </a>
                                     </li>
                                     <li className="footer__item">
-                                        <a href="#"  className="footer__link">
+                                        <a href="#"  className="footer__link" aria-label="Link to Twitter page">
                                             <svg>
                                                 <use href={`${iconTwitter}#icon-twitter`} />
-                                            </svg>{/* 
-                                            <img src={iconTwitter} alt="twitter icon" /> */}
+                                            </svg>
                                         </a>
                                     </li>
                                     <li className="footer__item">
-                                        <a href="#" className="footer__link">
+                                        <a href="#" className="footer__link" aria-label="Link to Instagram page">
                                             <svg>
                                                 <use href={`${iconInstagram}#icon-instagram`} />
                                             </svg>                                
