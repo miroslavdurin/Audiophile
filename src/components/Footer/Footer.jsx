@@ -45,21 +45,21 @@ function Footer() {
                                 </ul>  
                                 <ul className="footer__icons">
                                     <li className="footer__item">
-                                        <a href="#" className="footer__link">
+                                        <a href="/" className="footer__link" aria-label="Link to Facebook page">
                                             <svg>
                                                 <use href={`${iconFacebook}#icon-facebook`} />
                                             </svg>
                                         </a>
                                     </li>
                                     <li className="footer__item">
-                                        <a href="#"  className="footer__link">
+                                        <a href="/"  className="footer__link" aria-label="Link to Twitter page">
                                             <svg id="twitter">
                                                 <use href={`${iconTwitter}#icon-twitter`} />
                                             </svg>
                                         </a>
                                     </li>
                                     <li className="footer__item">
-                                        <a href="#" className="footer__link">
+                                        <a href="/" className="footer__link" aria-label="Link to Instagram page">
                                             <svg>
                                                 <use href={`${iconInstagram}#icon-instagram`} />
                                             </svg>                                
@@ -118,7 +118,7 @@ function Footer() {
                                         </a>
                                     </li>
                                     <li className="footer__item">
-                                        <a href="#" className="footer__link" aria-label="Link to Instagram page">
+                                        <a href="#" aria-label="Link to Instagram page" className="footer__link" >
                                             <svg>
                                                 <use href={`${iconInstagram}#icon-instagram`} />
                                             </svg>                                
@@ -127,6 +127,7 @@ function Footer() {
                                 </ul>
                             </div>
                         </div>            
+
                     </footer>
             }
         </>

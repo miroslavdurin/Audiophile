@@ -57,7 +57,7 @@ function Navbar() {
                     <svg>
                         <use href={`${iconCart}#icon-cart`} />
                     </svg>
-                    <p className={`nav__cart-quantity ${cart.quantity && 'visible'}`}><span>{cart.quantity}</span></p>                                       
+                    <span className={`nav__cart-quantity ${cart.quantity && 'visible'}`}><span>{cart.quantity}</span></span>                                       
                 </button>                
                 </div>                     
             </nav>  
