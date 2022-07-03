@@ -1,15 +1,40 @@
 import React, {useEffect} from 'react';
-import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar/Navbar';
 import Product from '../../components/Product/Product';
 import Info from '../../components/Info/Info';
 import Footer from '../../components/Footer/Footer';
 import Categories from '../../components/Categories/Categories';
 import './Category.scss';
+import { motion } from 'framer-motion';
 
 import {data} from '../../constants/index';
+import { useSelector, useDispatch } from 'react-redux/es/exports';
+import { setHeroAnimationFinished } from '../../redux/animationsRedux';
 
 function Category({category}) {    
+    
+    const animations = useSelector(state=>state.animations);
+    const dispatch = useDispatch();
+    
+    const headerVariants = {
+        hide: {
+            maxHeight: 0,
+        },
+        show: {
+            maxHeight: '25rem',
+            transition: {
+                duration: 0.7,
+                delay: animations.isRendered ? 0 : 0.7
+            }
+        },
+        exit: {
+            maxHeight: 0,
+            transition: {
+                duration: 0.6
+            }
+        }
+    }
+
     const products = Object.entries(data).filter(entry=> entry[1].category === category.toLowerCase()).map(el=> el[1]);
 
     useEffect(()=> { window.scrollTo(0,0) });
@@ -18,11 +43,24 @@ function Category({category}) {
         <>
             <header className='category__header mb-160'>
                 <Navbar />
-                <div className="category__title container">
+                <motion.div className="category__title container"
+                    variants={headerVariants}
+                    initial="hide"
+                    animate="show"
+                    exit="exit"
+                    onAnimationComplete={()=>dispatch(setHeroAnimationFinished({heroAnimationFinished: true}))}
+                >
                     <h2 className="heading--h2">{category}</h2>
-                </div>
+                </motion.div>
             </header>
-            <main>
+            <motion.main
+                exit={{
+                    opacity: 0,
+                    transition: {
+                        duration: 0.7
+                    }
+                }}
+            >
                 {
                     products.map((product, i)=>{
                         return (
@@ -31,12 +69,8 @@ function Category({category}) {
                     })
                 }
                 <Categories />
-                {/*  <Product data={xx99MarkTwoData} />
-                <Product data={xx99MarkOneData} isReversed={true} />
-                <Product data={zx7Data} />
-                <Product data={zx9Data} isReversed={true} /> */}
                 <Info />
-            </main>
+            </motion.main>
             <Footer />
         </>        
     )

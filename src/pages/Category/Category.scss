@@ -20,17 +20,21 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 9.7rem;
+
+        .heading--h2 {
+            padding: 9.7rem;
+        }
 
         @include respond(tab-port) {
-            padding: 10.5rem 0 9.7rem;
+            .heading--h2 {
+                padding: 10.5rem 0 9.7rem;
+            }
         }
 
         @include respond(phone-sm) {
-            padding: 3.2rem 0;
-            
             .heading--h2 {
                 letter-spacing: 2px;
+                padding: 3.2rem 0;
             }
         }
     }

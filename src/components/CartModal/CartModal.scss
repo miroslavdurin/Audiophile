@@ -17,6 +17,7 @@
     .container {
         display: flex;
         justify-content: flex-end;
+        overflow: hidden;
 
         @include respond(tab-port) {
             justify-content: center;

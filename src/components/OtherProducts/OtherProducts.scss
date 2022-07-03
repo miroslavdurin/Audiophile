@@ -21,7 +21,8 @@
     &__container {
         display: flex;
         gap: 3rem;
-        justify-content: space-between;             
+        justify-content: space-between;            
+        perspective: 100rem; 
 
         @include respond(tab-port) {
             gap: 1.1rem;

@@ -3,6 +3,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import Checkout from '../../components/Checkout/Checkout';
 import './CheckoutPage.scss';
+import { motion } from 'framer-motion';
 
 function CheckoutPage() {
     return (
@@ -10,9 +11,27 @@ function CheckoutPage() {
             <header style={{backgroundColor: '#000'}}>
                 <Navbar />
             </header>
-            <main>
+            <motion.main
+                initial={{
+                    opacity: 0
+                }}
+
+                animate={{
+                    opacity: 1,
+                    transition: {
+                        duration: 0.6
+                    }
+                }}
+
+                exit={{
+                    opacity: 0,
+                    transition: {
+                        duration: 0.4
+                    }
+                }}
+            >
                 <Checkout />
-            </main>
+            </motion.main>
             <Footer />
         </div>
     )

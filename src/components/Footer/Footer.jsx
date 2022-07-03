@@ -19,7 +19,7 @@ function Footer() {
                             <div className="footer__left">                                 
                                 <div className="footer__line" />
                                 <Link className="footer__logo-link" to={'/'}>
-                                    <img src={logo} alt="logo" className="footer__logo" />
+                                    <img src={logo} alt="audiophile logo" className="footer__logo" />
                                 </Link>
                                 <p className="paragraph footer__info">
                                     Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers and sound specialists who are devoted to helping you get the most out of personal audio. Come and visit our demo facility - we’re open 7 days a week.
@@ -77,7 +77,7 @@ function Footer() {
                             <div className="footer__left">   
                                 <div className="footer__line" />
                                 <Link className="footer__logo-link" to={'/'}>
-                                    <img src={logo} alt="logo" className="footer__logo" />
+                                    <img src={logo} alt="audiophile logo" className="footer__logo" />
                                 </Link>
                                 <ul className="footer__links mb-32">
                                     <li className="footer__item">

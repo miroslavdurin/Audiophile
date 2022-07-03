@@ -135,6 +135,7 @@
 
     &__item {
         cursor: pointer;
+        height: fit-content;
 
         &:nth-child(2) .footer__link{  
             svg {
@@ -150,6 +151,7 @@
     
     &__link {
         letter-spacing: 2px;
+        width: 2.4rem;
         
         svg {
             width: 2.4rem;

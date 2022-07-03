@@ -16,6 +16,7 @@ import {
     eMoneyNumberValidators,
     eMoneyPinValidators,
 } from '../../helpers/validators';
+import { motion } from 'framer-motion';
 
 function Checkout() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,19 +24,7 @@ function Checkout() {
     // TODO Remove default values in form
     const { register, handleSubmit, setValue, watch, trigger, formState:{errors, isValidating} } = useForm({
         reValidateMode: 'onChange',
-        mode: 'onChange',
-        defaultValues: {/* 
-            name: "Alexei Ward", *//* 
-            email: "alexei@mail.com", */
-            phone: "4444444444",
-            adress: "1137 Williams Avenue",
-            zip: "10000",
-            city: "New York",
-            country: "Croatia",
-            eMoneyNumber: "111111111",
-            eMoneyPin: "6891",
-            payment: "eMoney"
-        }
+        mode: 'onChange'
     });
 
 
@@ -66,7 +55,7 @@ function Checkout() {
         <section className="section-checkout container">
             { isModalOpen && <FinishedOrder />}
             <Link className="checkout__btn-back" to={-1}>Go Back</Link>
-            <div className="checkout">
+            <motion.div layout transition="linear" className="checkout">
                 <h3 className="heading--h3 mb-40">Checkout</h3>
                 <form id="checkout-form" 
                     onSubmit={handleSubmit((data)=>{
@@ -194,7 +183,11 @@ function Checkout() {
 
                         { payMethod === "eMoney" &&
                             <>
-                                <div className="checkout__form-container">
+                                <motion.div className="checkout__form-container"
+                                    initial={{opacity:0}}
+                                    animate={{opacity:1}}
+                                    exit={{opacity:0}}
+                                >
                                     <div className={`form__group form__group--half-size ${errors.eMoneyNumber?.message && 'error'}`}>
                                         <label htmlFor="eMoneyNumber" className="form__label">e-Money Number</label>
                                         <p className="form__error-message">{errors.eMoneyNumber?.message}</p>                              
@@ -217,30 +210,34 @@ function Checkout() {
                                             className={`form__input ${!errors.eMoneyPin?.message && 'valid'}`} 
                                             placeholder="6891" />
                                     </div>   
-                                </div>                            
+                                </motion.div>                            
                             </>
                         }
 
                         { payMethod === "cash" && 
                             <>
-                                <div className="checkout__cash-container">
+                                <motion.div className="checkout__cash-container"
+                                    initial={{opacity:0}}
+                                    animate={{opacity:1}}
+                                    exit={{opacity:0}}
+                                >
                                     <img src={icons.iconCash} alt="cash icon" className="checkout__cash-icon" />
                                     <p className="paragraph">
                                         The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives at your residence. Just make sure your address is correct so that your order will not be cancelled.
                                     </p>
-                                </div>
+                                </motion.div>
                             </>
                         }                                              
                     </div>
                 </form>                
-            </div>
+            </motion.div>
             <div className="summary">
                 <h6 className="heading--h6">Summary</h6>
                 {
                     cart.products.map((product, i)=>{
                         return (
                             <div key={product.name} className={`summary__product-info ${ i === cart.products.length - 1 ? 'mb-32' : 'mb-24'}`}>
-                                <img className="summary__img" src={product.cartImage} alt={`${product.name} image`} />
+                                <img className="summary__img" src={product.cartImage} alt={product.name} />
                                 <div className="summary__product-details">
                                     <div className="summary__product-name">{product.nameShort}</div>
                                     <div className="summary__price">$ {product.price.toLocaleString()}</div>
@@ -278,9 +275,9 @@ function Checkout() {
                 </div>
 
                 {cart.products.length > 0 ? 
-                    <button className='button summary__btn' form="checkout-form" type='submit'>Continue & pay</button>
+                    <button aria-label="submit order" className='button button--medium summary__btn' form="checkout-form" type='submit'>Continue & pay</button>
                     :
-                    <Link to="/" className='button summary__btn'>Continue Shopping</Link>
+                    <Link aria-label="continue shopping" to="/" className='button summary__btn'>Continue Shopping</Link>
                 }
             </div>
         </section>

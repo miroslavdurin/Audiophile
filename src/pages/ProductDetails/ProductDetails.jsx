@@ -9,6 +9,7 @@ import Categories from '../../components/Categories/Categories';
 import Footer from '../../components/Footer/Footer';
 import Info from '../../components/Info/Info';
 import {data} from '../../constants/index';
+import { motion } from 'framer-motion';
 
 function ProductDetails({productId}) {    
     useEffect(()=> { window.scrollTo(0,0) });
@@ -20,14 +21,21 @@ function ProductDetails({productId}) {
             <header className="product-details__header">
                 <Navbar />
             </header>
-            <main>
+            <motion.main
+                exit={{
+                    opacity: 0,
+                    transition: {
+                        duration: 0.7
+                    }
+                }}
+            >
                 <Product data={product} isDetailsPage={true}/>
                 <Description data={product} />
                 <Gallery images={product.gallery} />
                 <OtherProducts others={product.others} />
                 <Categories />
                 <Info />
-            </main>
+            </motion.main>
             <Footer />
         </>
     )

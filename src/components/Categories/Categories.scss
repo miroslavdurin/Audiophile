@@ -42,12 +42,12 @@
         }
 
         &:nth-child(2) &__img {
-            bottom: 0.6rem;
+            bottom: 8.6rem;
         }
 
         &:last-child &__img{
             left: 2.2rem;
-            bottom: -0.8rem;
+            bottom: 7.2rem;
             width: 80%;
         }
     }
@@ -58,6 +58,7 @@
             font-size: 1.5rem;
             letter-spacing: 1px;
         }
+        
     }
 
     @include respond(phone-sm) {
@@ -87,14 +88,12 @@
 
         @include respond(small-desktop) {
             left: 17%;
-            bottom: 0;
-            transform: translateY(-8rem);
+            bottom: 8rem;
             width: 65%;
         }
 
         @include respond(phone-sm) {
             position: static;
-            transform: translateY(0);
         }   
     }
 

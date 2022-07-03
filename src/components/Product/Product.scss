@@ -153,11 +153,12 @@
     &__wrapper {
         flex: 1;       
         border-radius: 8px;
-        overflow: hidden;    
+        overflow: hidden;  
     }
 
     &__img {
         width: 100%;
+        height: 100%; 
         display: block;
 
         @include respond(tab-land) {
@@ -179,6 +180,10 @@
         @include respond(tab-land) {
             text-align: center;
             align-items: center;
+
+            .heading--h2 {
+                text-align: left;
+            }
         }
 
         @include respond(phone-sm) {
@@ -189,7 +194,6 @@
             .heading--h2 {
                 letter-spacing: 1px;
                 margin-bottom: 2.4rem;
-
             }
 
         }
@@ -243,6 +247,10 @@
         display: flex;
         flex-direction: row;
         gap: 1.6rem;
+
+        @include respond(phone-sm) {
+            flex-wrap: wrap;
+        }
     }
 
     &__input-container {

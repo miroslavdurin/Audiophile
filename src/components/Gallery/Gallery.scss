@@ -51,6 +51,7 @@
         overflow: hidden;
         height: 100%;   
         width: 100%;
+        perspective: 10rem;
 
         &:last-child {
             margin-top: auto;
@@ -67,6 +68,14 @@
             width: 100%;
             object-fit: cover;
             height: 100%;
+            border-radius: 8px;
+
         }
+    }
+
+    &__img-first,
+    &__img-second,
+    &__img-third {
+        display: block;
     }
 }

@@ -3,6 +3,7 @@ import './FinishedOrder.scss';
 import { icons } from '../../constants/index';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { motion } from 'framer-motion';
 
 function FinishedOrder() {
       
@@ -12,14 +13,14 @@ function FinishedOrder() {
 
     return (
         <div className="finished-order">
-            <div className="finished-order__container">
+            <motion.div layout className="finished-order__container">
                 <div className="finished-order__text-content">
                     <img className="mb-32" src={icons.iconMark} alt="Mark icon" />
                     <h3 className="heading--h3 mb-24">Thank you for your order</h3>
                     <p className="paragraph mb-32">You will receive an email confirmation shortly</p>
                 </div>
                 <div className="finished-order__products-container mb-48">
-                    <div className={`finished-order__products ${cart.products.length > 0 && isAllProducts && 'scrollbar'}`}>
+                    <motion.div className={`finished-order__products ${cart.products.length > 0 && isAllProducts && 'scrollbar'}`}>
                         {
                             isAllProducts ? 
 
@@ -54,15 +55,22 @@ function FinishedOrder() {
                             </>
                         }
                         
-                    </div>
+                    </motion.div>
                     <div className="finished-order__total">
                         <span className="mb-8">Grand Total</span> 
                         <span>$ {cart.grandTotal.toLocaleString()}</span>
                     </div>
                 </div>
-                <Link to="/" className="button">Back to home</Link>
-            </div>
-            <div className="finished-order__overlay" />
+                <Link to="/" className="button button--big">Back to home</Link>
+            </motion.div>
+            <motion.div className="finished-order__overlay" 
+                initial={{opacity:0}}
+                animate={{opacity:1}}
+                exit={{opacity:0}}
+                transition={{
+                    duration:0.7
+                }}
+            />
         </div>
     )
 }

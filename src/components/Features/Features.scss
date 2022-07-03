@@ -66,7 +66,7 @@
         background-repeat: no-repeat;
 
         @include respond(tab-land) {
-            width: 35%;
+            width: 26%;
             height: 23rem;
             background-image: url('../../assets/home/tablet/image-speaker-zx9.png');            
         }
@@ -87,20 +87,33 @@
         color: $color-white;
         margin-right: auto;
         margin-top: 2rem;
+        padding-right: 4rem;
+
+        .heading--h1 {
+            max-width: 80%;
+        }
 
         @include respond(tab-land) {
             max-width: 70%;
-            margin-right: 0;
             margin-top: 1rem;
             text-align: center;
+            margin-left: auto;
+            padding-right: 0;
+
 
             .button {
                 margin: 0 auto;
             }
+
+            .heading--h1 {            
+                max-width: 100%;
+            }
+
         }
 
         @include respond(phone-lg) {
             max-width: 80%;
+
         }
 
         @include respond(phone-sm) {
@@ -131,8 +144,7 @@
             background-image: url('../../assets/home/tablet/image-speaker-zx7.jpg');      
             background-size: cover;
             padding: 10.5rem 0 10rem 6rem;
-            margin-bottom: 3.2rem;
-            
+            margin-bottom: 3.2rem;            
         }
         
         h4 {
@@ -153,6 +165,7 @@
         height: 32rem;
         display: flex;
         gap: 3rem;
+        perspective: 100rem;
 
         @include respond(tab-port) {
             gap: 1.1rem;

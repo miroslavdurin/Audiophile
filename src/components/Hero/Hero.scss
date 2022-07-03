@@ -2,24 +2,21 @@
 @use '../../sass/abstracts/mixins' as *;
 
 .hero {
-    padding: 13rem 0 15.8rem 0;    
     color: $color-white;
     display: flex;
     gap: 5rem;
     position: relative;
+    overflow: hidden;
 
     @include respond(small-desktop) {        
-        padding-top: 8rem;
         gap: 10rem;        
     }
 
     @include respond(tab-land) {        
        display: block;
-       padding: 12.5rem 0 16.7rem 0;       
     }
 
     @include respond(phone-sm) {
-        padding: 11rem 0 16.7rem 0;       
 
         &.container {
             margin: 0;
@@ -27,8 +24,25 @@
     }
 
     &__text-content {
-        width: 35%;
+        padding: 13rem 0 15.8rem 0;   
+        position: relative; 
+        z-index: 10;
+
+        width: 36%;
+        .heading--h1 {
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+
+            div {
+                overflow: hidden;
+            }
+            span {
+                display: block;             
+            }
+        }
         @include respond(small-desktop) {
+            padding-top: 8rem;
             position: relative;
             z-index: 10;
         }
@@ -37,6 +51,7 @@
             width: 88%;
             text-align: center;
             margin: 0 auto;
+            padding: 12.5rem 0 16.7rem 0;       
 
             .button {
                 margin: 0 auto;
@@ -56,6 +71,8 @@
         }
 
         @include respond(phone-sm) {
+            padding: 11rem 0 16.7rem 0;       
+
             .overline {
                 margin-bottom: 1.6rem;
             }
@@ -72,7 +89,6 @@
 
     &__text {
         opacity: 0.75;
-        width: 90%;
     }
 
     &__img-container {
@@ -81,14 +97,14 @@
         overflow-y: hidden;
         background-image: url('../../assets/home/desktop/image-hero.jpg');    
         background-size: cover;
-        background-position-x: 78%;
-        transform: translateY(-22.5rem);
+        background-position-x: 79%;
+        transform: translateY(-9.5rem);
 
         @include respond(small-desktop) {
             display: block;
             width: 60vw;
             height: 60vw;
-            transform: translateY(-22%);
+            transform: translateY(-9%);
             overflow-y: visible;            
             background-position-x: 75%;
         }
