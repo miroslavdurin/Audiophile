@@ -13,7 +13,14 @@ function FinishedOrder() {
 
     return (
         <div className="finished-order">
-            <motion.div layout className="finished-order__container">
+            <motion.div layout className="finished-order__container"
+                initial={{opacity: 0}}
+                animate={{opacity: 1,
+                transition: {
+                    duration: 0.8
+                }
+            }}
+            >
                 <div className="finished-order__text-content">
                     <img className="mb-32" src={icons.iconMark} alt="Mark icon" />
                     <h3 className="heading--h3 mb-24">Thank you for your order</h3>

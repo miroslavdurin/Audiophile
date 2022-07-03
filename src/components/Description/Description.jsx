@@ -42,7 +42,7 @@ function Description({data}) {
                     }
                 }}
 
-                viewport={{once: true}}
+                viewport={{once: true, amount: 0.7}}
             >
                 <h3 className="heading--h3 mb-32">In the box</h3>
                 <div className="description__details">

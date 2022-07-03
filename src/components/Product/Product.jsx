@@ -120,7 +120,7 @@ function Product({data, isReversed, isDetailsPage, isLastChild}) {
                     y: 10
                 }}
 
-                viewport={{once: true, amount: 0.7}}
+                viewport={{once: true, amount: 0.5}}
             >
                 <picture className="product__img">
                     <source srcSet={isDetailsPage ? image.mobile : categoryImage.mobile} media="(max-width: 34.37em)" />
@@ -140,7 +140,7 @@ function Product({data, isReversed, isDetailsPage, isLastChild}) {
                     initial="hide"
                     whileInView="show"
                     exit="hide"
-                    viewport={{ once: true, amount: 0.8}}
+                    viewport={{ once: true, amount: 0.5}}
                 >
                 {isNew && 
                 <motion.p className="overline mb-16"
@@ -153,7 +153,7 @@ function Product({data, isReversed, isDetailsPage, isLastChild}) {
                     initial={isSmallScreen ? "hideSmall" : "hide"}
                     whileInView={isSmallScreen ? "showSmall" : "show"}
                     exit={!isSmallScreen && "hide"}
-                    viewport={{ once: true, amount: 0.8}} 
+                    viewport={{ once: true, amount: 0.5}} 
                     key={isSmallScreen + "h2"}
                 >
                     <span>{name.split(' ').slice(0, -1).join(' ')}</span>

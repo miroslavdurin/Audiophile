@@ -62,18 +62,20 @@ function Features() {
         <section className='section-features container mb-200'>
             <div className="feature__speaker-zx9 mb-48">
                 <motion.div 
+                    className="feature__zx9-image-container"
                     variants={imageVariants}
                     initial={isSmallScreen ? "hideSmall" : "hide"}
                     whileInView={isSmallScreen ? "showSmall" : "show"}
-                    viewport={{once: true, amount: 0.8}}                
+                    viewport={{once: true, amount: isSmallScreen && 0.8}}                
                     key={isSmallScreen + "image"}
-                    className="feature__zx9-image-container" />
+                />
                 <motion.div className="feature__zx9-content"
                     initial={isSmallScreen ? "hideSmall" : "hide"}
                     whileInView={isSmallScreen ? "showSmall" : "show"}
                     variants={contentVariants}
-                    viewport={{once: true, amount: 0.8}}
-                    /* key is necessary here for useMediaQuery */
+                    viewport={{once: true, amount: 0.5}}
+                    /* key is necessary here for useMediaQuery, it's because it sets isSmallScreen on false when it firts loads
+                    and it doesn't re-render it again until key had changed */
                     key={isSmallScreen + "content"}
                 >
                     <h1 className="heading--h1 mb-24">zx9 speaker</h1>
@@ -111,9 +113,7 @@ function Features() {
                         transition: {
                             duration: 1.4
                         }
-                    }}
-
-                     
+                    }}                    
 
                 viewport={{once: true, amount: 0.7}}
 
@@ -132,8 +132,7 @@ function Features() {
                         }
                     }}
 
-                viewport={{once: true, amount: 0.7}}
-                    
+                viewport={{once: true, amount: 0.7}}                    
                 >
                     <h4 className="heading--h4">yx1 earphones</h4>
                     <Link to={'product/yx1-earphones'} className="button button--transparent">see product</Link>

@@ -180,10 +180,6 @@
         @include respond(tab-land) {
             text-align: center;
             align-items: center;
-
-            .heading--h2 {
-                text-align: left;
-            }
         }
 
         @include respond(phone-sm) {

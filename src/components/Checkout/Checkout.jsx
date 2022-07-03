@@ -21,7 +21,6 @@ import { motion } from 'framer-motion';
 function Checkout() {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    // TODO Remove default values in form
     const { register, handleSubmit, setValue, watch, trigger, formState:{errors, isValidating} } = useForm({
         reValidateMode: 'onChange',
         mode: 'onChange'
@@ -55,7 +54,7 @@ function Checkout() {
         <section className="section-checkout container">
             { isModalOpen && <FinishedOrder />}
             <Link className="checkout__btn-back" to={-1}>Go Back</Link>
-            <motion.div layout transition="linear" className="checkout">
+            <div layout transition="linear" className="checkout">
                 <h3 className="heading--h3 mb-40">Checkout</h3>
                 <form id="checkout-form" 
                     onSubmit={handleSubmit((data)=>{
@@ -230,7 +229,7 @@ function Checkout() {
                         }                                              
                     </div>
                 </form>                
-            </motion.div>
+            </div>
             <div className="summary">
                 <h6 className="heading--h6">Summary</h6>
                 {
