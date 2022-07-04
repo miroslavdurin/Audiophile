@@ -15,7 +15,7 @@ import { AnimatePresence } from 'framer-motion';
 
 
 function SelectedCategory() {
-  /* TODO Make animations */
+  /* FIXME  fix refresh problem if it's not a home page*/
   const {categoryId} = useParams();  
 
   return (

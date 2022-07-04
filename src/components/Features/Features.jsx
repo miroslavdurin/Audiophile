@@ -73,7 +73,7 @@ function Features() {
                     initial={isSmallScreen ? "hideSmall" : "hide"}
                     whileInView={isSmallScreen ? "showSmall" : "show"}
                     variants={contentVariants}
-                    viewport={{once: true, amount: 0.5}}
+                    viewport={{once: true, amount: 0.7}}
                     /* key is necessary here for useMediaQuery, it's because it sets isSmallScreen on false when it firts loads
                     and it doesn't re-render it again until key had changed */
                     key={isSmallScreen + "content"}
