@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import './App.scss';
 import './sass/main.scss';
 import { Routes, Route, useParams, useLocation } from 'react-router-dom';
-
 import Home from './pages/Home/Home';
 import Category from './pages/Category/Category';
 import ProductDetails from './pages/ProductDetails/ProductDetails';
@@ -10,12 +9,10 @@ import CheckoutPage from './pages/CheckoutPage/CheckoutPage';
 import { useDispatch } from 'react-redux';
 import { setProducts } from './redux/cartRedux';
 import { setHeroAnimationFinished } from './redux/animationsRedux';
-
 import { AnimatePresence } from 'framer-motion';
 
 
 function SelectedCategory() {
-  /* FIXME  fix refresh problem if it's not a home page*/
   const {categoryId} = useParams();  
 
   return (

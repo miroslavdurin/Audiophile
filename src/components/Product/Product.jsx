@@ -3,20 +3,19 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Product.scss';
 import { addProduct } from '../../redux/cartRedux';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { motion } from 'framer-motion';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 
 function Product({data, isReversed, isDetailsPage, isLastChild}) {    
     const [quantity, setQuantity] = useState(1);
 
-    const cart = useSelector(state=>state.cart);   
-
     const isSmallScreen =  useMediaQuery('(max-width: 65.25em)');
 
     const { categoryImage, description, name, category, price, image, slug, cartImage, nameShort } = data;
     const isNew = data.new;
 
+    /* FRAMER MOTION variants */
     const titleVariants = {
         hide: {
             x: isReversed ? -30 : 30,
@@ -61,6 +60,24 @@ function Product({data, isReversed, isDetailsPage, isLastChild}) {
         }
     }
 
+    const wrapperVariants = {
+        hide: {
+            opacity: 0,
+            y: 10
+        },
+        show: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.6
+            }
+        },
+        exit: {
+            opacity: 0,
+            y: 10
+        }
+    }
+
     const product = {
         cartImage,
         category,
@@ -95,31 +112,16 @@ function Product({data, isReversed, isDetailsPage, isLastChild}) {
     }
 
     return (
-        <motion.section 
-            
+        <section             
             style={{marginBottom: isLastChild && '24.3rem'}} 
             className={`${isReversed && 'reverse'} ${isDetailsPage && 'details'} section-product container mb-160`}>
             {isDetailsPage && <Link to={-1} className="product__btn-back">Go back</Link>}
 
             <motion.div className="product__wrapper"
-                initial={{
-                    opacity: 0,
-                    y: 10
-                }}
-
-                whileInView= {{
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                        duration: 0.6
-                    }
-                }}
-
-                exit = {{
-                    opacity: 0,
-                    y: 10
-                }}
-
+                variants={wrapperVariants}
+                initial="hide"
+                whileInView="show"
+                exit="exit"
                 viewport={{once: true, amount: 0.5}}
             >
                 <picture className="product__img">
@@ -143,10 +145,7 @@ function Product({data, isReversed, isDetailsPage, isLastChild}) {
                     viewport={{ once: true, amount: 0.5}}
                 >
                 {isNew && 
-                <motion.p className="overline mb-16"
-                    
-                >new product
-                </motion.p>}
+                <p className="overline mb-16">new product</p>}
 
                 <motion.h2 className="heading--h2 mb-32"
                     variants={titleVariants}
@@ -159,9 +158,7 @@ function Product({data, isReversed, isDetailsPage, isLastChild}) {
                     <span>{name.split(' ').slice(0, -1).join(' ')}</span>
                     <span>{name.split(' ')[name.split(' ').length - 1]}</span>
                 </motion.h2>
-                <motion.p className={`paragraph ${isDetailsPage ? 'mb-32 details' : 'mb-40'}`}
-                    
-                >{description}</motion.p>
+                <p className={`paragraph ${isDetailsPage ? 'mb-32 details' : 'mb-40'}`}>{description}</p>
 
                 { isDetailsPage ?   
                     <>
@@ -179,10 +176,7 @@ function Product({data, isReversed, isDetailsPage, isLastChild}) {
                     <Link to={`/product/${slug}`} className="button">See product</Link>                
                 }
             </motion.div>
-
-            </motion.section
-            
-            >
+        </section>
     )
 }
 

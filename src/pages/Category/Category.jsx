@@ -6,7 +6,6 @@ import Footer from '../../components/Footer/Footer';
 import Categories from '../../components/Categories/Categories';
 import './Category.scss';
 import { motion } from 'framer-motion';
-
 import {data} from '../../constants/index';
 import { useSelector, useDispatch } from 'react-redux/es/exports';
 import { setHeroAnimationFinished } from '../../redux/animationsRedux';

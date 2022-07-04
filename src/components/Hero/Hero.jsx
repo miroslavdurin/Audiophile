@@ -12,6 +12,7 @@ function Hero() {
 
     const isSmallScreen =  useMediaQuery('(max-width: 65.25em)');
 
+    /* FRAMER MOTION variants */
     const containerVariants = {
         hide: {
             maxHeight: 0,
@@ -116,8 +117,7 @@ function Hero() {
                 }
         }
     }    
-     
-
+    
     return (
         <motion.div 
             variants={containerVariants}

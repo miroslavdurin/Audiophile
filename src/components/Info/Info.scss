@@ -70,6 +70,7 @@ svg {
         border-radius: 8px;
         height: 58.8rem;
         filter: url(#noise);
+        transform: translate(-10px, -10px);
 
         @include respond(small-desktop) {
             height: 50vw;

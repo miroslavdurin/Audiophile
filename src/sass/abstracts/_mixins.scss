@@ -1,16 +1,17 @@
 // MEDIA QUERY MANAGER
 /*
-0 - 600px:      Phone
-600 - 900px:    Tablet portrait
-900 - 1200px:   Tablet landscape
-[1200 - 1800] is where our normal styles apply
-1800px + :      Big desktop
+0 - 550px:        Small phone
+550px - 750px:    Large phone
+750px - 900px:    Tablet portrait
+900px - 1050px:   Tablet landscape
+1050px - 1300px:  Small desktop
 
 $breakpoint arguement choices:
-- phone
+- phone-sm
+- phone-lg
 - tab-port
 - tab-land
-- big-desktop
+- small-desktop
 
 ORDER: Base + typography > general layout + grid > page layout > components
 

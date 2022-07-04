@@ -57,10 +57,7 @@ function Checkout() {
             <div layout transition="linear" className="checkout">
                 <h3 className="heading--h3 mb-40">Checkout</h3>
                 <form id="checkout-form" 
-                    onSubmit={handleSubmit((data)=>{
-                        setIsModalOpen(true);
-                        console.log(data)
-                    })} 
+                    onSubmit={handleSubmit((data)=>setIsModalOpen(true))} 
                     autoComplete='off' 
                     action="/" 
                     className="form">
@@ -72,7 +69,6 @@ function Checkout() {
                                 <p className="form__error-message">{errors.name?.message}</p>
                                 <input onFocus={()=> trigger("name")} id="name" {...register("name", {...nameValidators} )} 
                             type="text" className={`form__input ${!errors.name?.message && 'valid'}`} placeholder="Alexei Ward" />
-
                             </div>
                             <div className={`form__group form__group--half-size ${errors.email?.message && 'error'}`}>
                                 <label htmlFor="email" className="form__label">Email Adress</label>
@@ -119,7 +115,6 @@ function Checkout() {
                                     className={`form__input ${!errors.zip?.message && 'valid'}`} 
                                     placeholder="10000" />
                             </div>
-
 
                             <div className={`form__group form__group--half-size ${errors.city?.message && 'error'}`}>
                                 <label htmlFor="city" className="form__label">City</label>

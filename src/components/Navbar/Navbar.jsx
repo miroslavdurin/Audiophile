@@ -10,6 +10,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { motion } from 'framer-motion';
 import { setFirstRender } from '../../redux/animationsRedux';
 
+/* FRAMER MOTION variants */
 const linksVariants = {
     hide: {
         opacity:0,
@@ -61,8 +62,7 @@ function Navbar() {
     }
 
     useEffect(()=>{
-        window.addEventListener('click', handleClick);       
-
+        window.addEventListener('click', handleClick);    
     },[])
 
     return (
@@ -82,9 +82,7 @@ function Navbar() {
                     <Link className="nav__logo-link" to={'/'}>
                         <img className="nav__logo" src={logo} alt="Audiophile logo" /> 
                     </Link>                   
-                    <motion.ul className="nav__links"
-                        
-                        >
+                    <ul className="nav__links">
                         <li className="nav__item">
                             <NavLink to={"/"} className={({isActive}) => isActive ? 'nav__link active' : 'nav__link'}>Home</NavLink>
                         </li>
@@ -97,7 +95,7 @@ function Navbar() {
                         <li className="nav__item">
                             <NavLink to={"/earphones"} className={({isActive}) => isActive ? 'nav__link active' : 'nav__link'}>Earphones</NavLink>
                         </li>
-                    </motion.ul>  
+                    </ul>  
                     <button aria-label="navigation cart button" className="nav__cart-btn" onClick={handleOpenCartModal}>
                         <svg>
                             <use href={`${iconCart}#icon-cart`} />

@@ -1,7 +1,6 @@
 import React from 'react';
 import './Gallery.scss';
 import { motion } from 'framer-motion';
-import { useEffect } from 'react';
 import { useState } from 'react';
 
 function Gallery({images}) {
@@ -10,6 +9,7 @@ function Gallery({images}) {
 
     const {first, second, third} = images;     
 
+    /* Logic needed for tilt effect while hovering gallery */
     function handleMove(e) {
         const leftRect = e.target.closest('.gallery__container').getBoundingClientRect().left;
         const topRect = e.target.closest('.gallery__container').getBoundingClientRect().top;
@@ -17,7 +17,7 @@ function Gallery({images}) {
         const width = e.target.width / 2;
         const height = e.target.height / 2;
 
-        setPosX(e.screenX && ((e.screenX - leftRect - width) / 400 ))
+        setPosX((e.screenX - leftRect - width) / 400 )
         setPosY((e.clientY - topRect - height) / 300)
     }
 
@@ -47,7 +47,7 @@ function Gallery({images}) {
                         <source srcSet={first.mobile} media="(max-width: 34.37em)" />
                         <source srcSet={first.tablet} media="(max-width: 56.25em)" />
                         <source srcSet={first.desktop} media="(min-width: 65.25em)" /> 
-                        
+                                                
                         <img src={first.desktop} srcSet={first.desktop} alt="gallery" className="gallery__img-first" />
                     </motion.picture>
                 </div>

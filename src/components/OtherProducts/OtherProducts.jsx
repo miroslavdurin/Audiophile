@@ -4,6 +4,21 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 function OtherProducts({others}) {
+
+    /* FRAMER MOTION variants */
+    const contentVariants = {
+        hide: {
+            opacity: 0,
+            y: 20
+        },
+        show: {
+            opacity: 1,
+            y:0,
+            transition: {
+                duration: 1
+            }
+        }
+    }
    
     return (
         <section className="section-other-products container mb-240">
@@ -20,7 +35,6 @@ function OtherProducts({others}) {
                                         opacity: 0,
                                         rotateY: '-180deg'
                                     }}
-
                                     whileInView={{
                                         opacity: 1,
                                         rotateY: 0,
@@ -29,36 +43,22 @@ function OtherProducts({others}) {
                                             delay: i * 0.1
                                         }
                                     }}
-
                                     viewport={{once: true}}
-
                                 >
                                     <source srcSet={product.image.mobile} media="(max-width: 34.37em)" />
                                     <source srcSet={product.image.tablet} media="(max-width: 46.87em)" />
-                                    <source srcSet={product.image.desktop} media="(min-width: 65.25em)" /> 
-                                    
+                                    <source srcSet={product.image.desktop} media="(min-width: 65.25em)" />                                     
                                     <img src={product.image.desktop} srcSet={product.image.desktop} alt="product" className="products__img mb-40" />
                                 </motion.picture>
                                 <motion.div
-                                    initial={{
-                                        opacity: 0,
-                                        y: 20
-                                    }}
-
-                                    whileInView={{
-                                        opacity: 1,
-                                        y:0,
-                                        transition: {
-                                            duration: 1
-                                        }
-                                    }}
-
+                                    variants={contentVariants}
+                                    initial="hide"
+                                    whileInView="show"
                                     viewport={{once: true}}
                                 >
                                     <h5 className="heading--h5 mb-32">{product.name}</h5>
                                     <Link to={`/product/${product.slug}`} className="button">See Product</Link>  
-                                </motion.div>
-                                
+                                </motion.div>                                
                             </div>
                         )                        
                     })

@@ -8,6 +8,7 @@ function Info() {
 
     const isSmallScreen =  useMediaQuery('(max-width: 65.25em)');
 
+    /* FRAMER MOTION variants */
     const contentVariants = {
         hide: {
             opacity: 0,

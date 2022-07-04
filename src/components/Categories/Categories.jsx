@@ -6,9 +6,9 @@ import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux/es/exports';
 
 function Categories({isMobileMenu}) {
-    const {isRendered} = useSelector(state=>state.animations);
-    
+    const {isRendered} = useSelector(state=>state.animations);    
 
+    /* FRAMER MOTION variants */
     const imageVariants = {
         hide: {
             scale: 0,
@@ -67,10 +67,7 @@ function Categories({isMobileMenu}) {
                     variants={ imageVariants} 
                     initial="hide"
                     whileInView= "show"
-                    viewport={{
-                        once: true,
-                        amount: 0.7
-                    }}                    
+                    viewport={{once: true, amount: 0.7}}                    
                 />
                 <motion.h6 className="heading--h6"
                     variants={titleVariants}

@@ -10,7 +10,8 @@ function Features() {
 
     const isSmallScreen =  useMediaQuery('(max-width: 65.25em)');    
 
-    const contentVariants = {
+    /* FRAMER MOTION variants */
+    const zx9ContentVariants = {
         hide: {
             x: 20,
             opacity: 0
@@ -35,7 +36,7 @@ function Features() {
         }
     }
 
-    const imageVariants = {
+    const zx9ImageVariants = {
         hide: {
             opacity: 0,
             y: "42rem"
@@ -57,25 +58,65 @@ function Features() {
             }
         }
     }    
+
+    const zx7Variants = {
+        hide: {
+            opacity: 0
+        },
+        show: {
+            opacity: 1,
+            transition: {
+                duration: 1
+            }
+        }
+    }
+
+    const earphonesImageVariants = {
+        hide: {
+            opacity: 0,
+            rotateY: '-270deg'
+        },
+        show: {
+            opacity: 1,
+            rotateY: 0,
+            transition: {
+                duration: 1.4
+            }
+        }
+    }
+
+    const earphonesContentVariants = {
+        hide: {
+            opacity: 0,
+            y: 20
+        },
+        show: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 1
+            }
+        }
+    }
     
     return (
         <section className='section-features container mb-200'>
             <div className="feature__speaker-zx9 mb-48">
                 <motion.div 
                     className="feature__zx9-image-container"
-                    variants={imageVariants}
+                    variants={zx9ImageVariants}
                     initial={isSmallScreen ? "hideSmall" : "hide"}
                     whileInView={isSmallScreen ? "showSmall" : "show"}
                     viewport={{once: true, amount: isSmallScreen && 0.8}}                
                     key={isSmallScreen + "image"}
                 />
                 <motion.div className="feature__zx9-content"
+                    variants={zx9ContentVariants}
                     initial={isSmallScreen ? "hideSmall" : "hide"}
                     whileInView={isSmallScreen ? "showSmall" : "show"}
-                    variants={contentVariants}
                     viewport={{once: true, amount: 0.7}}
-                    /* key is necessary here for useMediaQuery, it's because it sets isSmallScreen on false when it firts loads
-                    and it doesn't re-render it again until key had changed */
+                    /* key is necessary here for useMediaQuery, it's because it sets isSmallScreen on false every time it first loads
+                    and it doesn't re-render again until key had changed. It is also important that there are no 2 same keys... */
                     key={isSmallScreen + "content"}
                 >
                     <h1 className="heading--h1 mb-24">zx9 speaker</h1>
@@ -84,17 +125,9 @@ function Features() {
                 </motion.div>
             </div>
             <motion.div className="feature__speaker-zx7 mb-48"
-                initial={{
-                    opacity: 0
-                }}
-
-                whileInView={{
-                    opacity: 1,
-                    transition: {
-                        duration: 1
-                    }
-                }}
-
+                variants={zx7Variants}
+                initial="hide"
+                whileInView="show"
                 viewport={{once: true, amount: 0.7}}
             >
                 <h4 className="heading--h4">zx7 speaker</h4>
@@ -102,37 +135,16 @@ function Features() {
             </motion.div>
             <div className="feature__earphones">
                 <motion.div className="feature__earphones-image" 
-                    initial={{
-                        opacity: 0,
-                        rotateY: '-270deg'
-                    }}
-
-                    whileInView={{
-                        opacity: 1,
-                        rotateY: 0,
-                        transition: {
-                            duration: 1.4
-                        }
-                    }}                    
-
-                viewport={{once: true, amount: 0.7}}
-
+                    variants={earphonesImageVariants}
+                    initial="hide"
+                    whileInView="show"                    
+                    viewport={{once: true, amount: 0.7}}
                 />
                 <motion.div className="feature__earphones-content"
-                    initial={{
-                        opacity: 0,
-                        y: 20
-                    }}
-
-                    whileInView={{
-                        opacity: 1,
-                        y: 0,
-                        transition: {
-                            duration: 1
-                        }
-                    }}
-
-                viewport={{once: true, amount: 0.7}}                    
+                    variants={earphonesContentVariants}
+                    initial="hide"
+                    whileInView="show"
+                    viewport={{once: true, amount: 0.7}}                    
                 >
                     <h4 className="heading--h4">yx1 earphones</h4>
                     <Link to={'product/yx1-earphones'} className="button button--transparent">see product</Link>
