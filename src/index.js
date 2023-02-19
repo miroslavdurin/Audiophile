@@ -14,7 +14,6 @@ root.render(
       <BrowserRouter>
         <App tab="home" />    
       </BrowserRouter>
-    </Provider>
-    
+    </Provider>    
   </React.StrictMode>
 );
